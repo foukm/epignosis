@@ -84,9 +84,7 @@ if (!isset($_SESSION['user'])) {
             <?php endif; ?>
         </div>
     </div>
-    <?php
-        require_once "footer.php";
-    ?>
+    
   
 </body>
 </html>

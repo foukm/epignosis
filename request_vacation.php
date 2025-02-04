@@ -106,8 +106,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         document.getElementById("start_date").addEventListener("change", validateDates);
         document.getElementById("end_date").addEventListener("change", validateDates);
     </script>
-        <?php
-        require_once "footer.php";
-    ?>
+        
 </body>
 </html>
