@@ -8,18 +8,19 @@ if (!isset($_SESSION['user'])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
     $username = $_POST['username'];
     $email = $_POST['email'];
     $employee_code = $_POST['employee_code'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $role = $_POST['role']; 
+    $role = $_POST['role'];
 
-    // Έλεγχος αν υπάρχει ήδη το username
+    
     $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE username = ?");
     $stmt->execute([$username]);
     $existingUsername = $stmt->fetchColumn();
 
-    // Έλεγχος αν υπάρχει ήδη ο employee_code
+    
     $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE employee_code = ?");
     $stmt->execute([$employee_code]);
     $existingEmployee = $stmt->fetchColumn();
@@ -29,9 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif ($existingEmployee > 0) {
         $error_message = "The employee code already exists. Please choose a unique code.";
     } else {
-        // Αν δεν υπάρχουν διπλότυπα, κάνουμε την εισαγωγή
-        $stmt = $pdo->prepare("INSERT INTO users (username, email, employee_code, password, role) VALUES (?, ?, ?, ?, ?)");
-        $stmt->execute([$username, $email, $employee_code, $password, $role]);
+        
+        $stmt = $pdo->prepare("INSERT INTO users (name, username, email, employee_code, password, role) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->execute([$name, $username, $email, $employee_code, $password, $role]);
 
         header("Location: users.php");
         exit();
@@ -50,12 +51,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div class="user-form">
         <h2 class="text-center mb-4">Create new user</h2>
         
         <form method="POST" id="userForm">
-           
+            <div class="mb-3">
+                <label for="name" class="form-label"><i class="bi bi-person"></i> Full Name:</label>
+                <input type="text" name="name" id="name" class="form-control" required>
+            </div>
+
             <div class="mb-3">
                 <label for="username" class="form-label"><i class="bi bi-person"></i> Username:</label>
                 <input type="text" name="username" id="username" class="form-control" required>
@@ -98,12 +102,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <a href="dashboard.php" class="back-link d-block text-center">
             <i class="bi bi-arrow-left-circle"></i> Go back
         </a>
-
     </div>
 
-    <?php
-        require_once "footer.php";
-    ?>
-
+    <?php require_once "footer.php"; ?>
 </body>
 </html>

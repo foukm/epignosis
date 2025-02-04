@@ -18,6 +18,7 @@ if (!$user) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
     $username = $_POST['username'];
     $email = $_POST['email'];
     $role = $_POST['role'];
@@ -25,11 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!empty($new_password)) {
         $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
-        $stmt = $pdo->prepare("UPDATE users SET username = ?, email = ?, password = ?, role = ? WHERE id = ?");
-        $stmt->execute([$username, $email, $hashed_password, $role, $id]);
+        $stmt = $pdo->prepare("UPDATE users SET name = ?, username = ?, email = ?, password = ?, role = ? WHERE id = ?");
+        $stmt->execute([$name, $username, $email, $hashed_password, $role, $id]);
     } else {
-        $stmt = $pdo->prepare("UPDATE users SET username = ?, email = ?, role = ? WHERE id = ?");
-        $stmt->execute([$username, $email, $role, $id]);
+        $stmt = $pdo->prepare("UPDATE users SET name = ?, username = ?, email = ?, role = ? WHERE id = ?");
+        $stmt->execute([$name, $username, $email, $role, $id]);
     }
 
     header("Location: users.php");
@@ -45,9 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Επεξεργασία Χρήστη</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
-        
-    </style>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -56,6 +54,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h2 class="text-center mb-4">Επεξεργασία Χρήστη</h2>
         
         <form method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label"><i class="bi bi-person"></i> Full Name:</label>
+                <input type="text" name="name" id="name" class="form-control" value="<?= htmlspecialchars($user['name']) ?>" required>
+            </div>
+
             <div class="mb-3">
                 <label for="username" class="form-label"><i class="bi bi-person"></i> Username:</label>
                 <input type="text" name="username" id="username" class="form-control" value="<?= htmlspecialchars($user['username']) ?>" readonly>
@@ -88,9 +91,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </a>
     </div>
     
-    <?php
-        require_once "footer.php";
-    ?>
-    
+    <?php require_once "footer.php"; ?>
 </body>
 </html>

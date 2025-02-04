@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Εξυπηρετητής: 127.0.0.1
--- Χρόνος δημιουργίας: 04 Φεβ 2025 στις 10:16:04
+-- Χρόνος δημιουργίας: 04 Φεβ 2025 στις 14:32:52
 -- Έκδοση διακομιστή: 10.4.28-MariaDB
 -- Έκδοση PHP: 8.2.4
 
@@ -33,17 +33,18 @@ CREATE TABLE `users` (
   `email` varchar(100) NOT NULL,
   `employee_code` char(7) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` enum('employee','manager') DEFAULT 'employee'
+  `role` enum('employee','manager') DEFAULT 'employee',
+  `name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Άδειασμα δεδομένων του πίνακα `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `employee_code`, `password`, `role`) VALUES
-(1, 'admin', 'admin1111@example.com', '1234567', '$2y$10$yKvAhqcjyr462URzSBu3hOVR9Cm20Mr2GdAukdzqumjoubGv3AO6S', 'manager'),
-(2, 'admin1', 'foukakimaria@gmail.com', '1234', '$2y$10$lZmrq2UZSGCz/Il/Hkq5o.oUrLC9EiWDSlnLwkWQaYmSfDTqjoj1u', 'employee'),
-(20, 'employee1', 'eadam@gmail.com', '1234943', '$2y$10$LdnDPSrq8r595VEGBXBVnO504uyjiZ5DDhPjlC/foSfJpC2Y6TKEm', 'employee');
+INSERT INTO `users` (`id`, `username`, `email`, `employee_code`, `password`, `role`, `name`) VALUES
+(1, 'admin', 'admin1111@example.com', '1234567', '$2y$10$yKvAhqcjyr462URzSBu3hOVR9Cm20Mr2GdAukdzqumjoubGv3AO6S', 'manager', 'dfgdfg'),
+(2, 'admin1', 'foukakimaria@gmail.com', '1234', '$2y$10$lZmrq2UZSGCz/Il/Hkq5o.oUrLC9EiWDSlnLwkWQaYmSfDTqjoj1u', 'employee', 'MARIA'),
+(20, 'employee1', 'eadacvxcm@gmail.com', '1234943', '$2y$10$LdnDPSrq8r595VEGBXBVnO504uyjiZ5DDhPjlC/foSfJpC2Y6TKEm', 'employee', 'GIANNIS PAPADAKIS');
 
 -- --------------------------------------------------------
 
@@ -103,7 +104,7 @@ ALTER TABLE `vacation_requests`
 -- AUTO_INCREMENT για πίνακα `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT για πίνακα `vacation_requests`

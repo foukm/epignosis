@@ -40,6 +40,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <tr>
                     <th>ID</th>
                     <th>Username</th>
+                    <th>Name</th>
                     <th>Email</th>
                     <th>Employee code</th>
                     <th>Role</th>
@@ -51,6 +52,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <tr>
                     <td><?= $user['id'] ?></td>
                     <td><?= $user['username'] ?></td>
+                    <td><?= $user['name'] ?></td>
                     <td><?= $user['email'] ?></td>
                     <td><?= $user['employee_code'] ?></td>
                     <td><?= ucfirst($user['role']) ?></td>
