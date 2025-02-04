@@ -1,0 +1,243 @@
+
+.user-form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    
+}
+
+.btn-custom {
+    background: #007bff;
+    color: white;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+    pointer-events: auto;
+}
+
+.btn-custom:hover {
+    background: rgb(69, 9, 166);
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.back-link {
+    text-decoration: none;
+    font-size: 16px;
+    color: #007bff;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: rgb(69, 9, 166);
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+}
+
+
+
+.dashboard-container {
+    width: 80%;
+    max-width: 900px;
+}
+
+.dashboard-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-card i {
+    font-size: 40px;
+    color: #007bff;
+}
+
+.logout-card {
+    background: #ff4d4d;
+    color: white;
+}
+
+.logout-card:hover {
+    background: #cc0000;
+}
+
+
+.edit-form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.btn-custom {
+    background: #007bff;
+    color: white;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.btn-custom:hover {
+    background: rgb(69, 9, 166);
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.back-link {
+    text-decoration: none;
+    font-size: 16px;
+    color: #007bff;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: rgb(69, 9, 166);
+}
+
+.btn-gradient {
+    background: linear-gradient(90deg, #007bff,rgb(69, 9, 166));
+    color: white;
+    border: none;
+    transition: background 0.3s ease;
+}
+.btn-gradient:hover {
+    background: linear-gradient(90deg,rgb(69, 9, 166), #007bff);
+}
+body {
+    background: linear-gradient(135deg, #f3e7e9, #e3eeff); /* Pastel gradient */
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.request-form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.btn-custom {
+    background: #007bff;
+    color: white;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+    pointer-events: auto;
+}
+
+.btn-custom:hover {
+    background: rgb(69, 9, 166);
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.back-link {
+    text-decoration: none;
+    font-size: 16px;
+    color: #007bff;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: rgb(69, 9, 166);
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+}
+
+
+.container {
+    margin-top: 50px;
+}
+
+table th, table td {
+    text-align: center;
+}
+
+.table-custom {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-custom {
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+.btn-custom:hover {
+    background: rgb(69, 9, 166);
+}
+
+.back-link {
+    text-decoration: none;
+    font-size: 16px;
+    color: #007bff;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: rgb(69, 9, 166);
+}
+
+footer {
+    background-color: #716fe8;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline;
+}
+
+.logout-card i {
+    color: white;
+}
